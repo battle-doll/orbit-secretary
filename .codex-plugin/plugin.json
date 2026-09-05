@@ -1,0 +1,36 @@
+{
+  "name": "orbit-secretary",
+  "version": "0.2.0-rc.1",
+  "description": "One manager chat for your Codex tasks: observe progress, discuss direction and ROI, and carry out finite interventions you explicitly authorize on supported hosts.",
+  "author": {
+    "name": "battle-doll",
+    "url": "https://github.com/battle-doll"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Orbit Secretary",
+    "shortDescription": "One chat to observe, decide and coordinate your Codex tasks.",
+    "longDescription": "Orbit Secretary consolidates task progress and helps carry your decisions forward. Observe, Discuss and finite authorized Act run through available Codex host tools. No unattended scheduler or guaranteed retroactive OFF cancellation. macOS, Windows and Linux are target platforms; host capabilities and validation coverage differ.",
+    "developerName": "battle-doll",
+    "category": "Productivity",
+    "capabilities": [
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Orbit, brief me on changes across my Codex tasks.",
+      "Orbit, help me choose which tasks to coordinate.",
+      "Orbit, coordinate this selected task within the scope I approve."
+    ],
+    "logo": "./assets/orbit-logo.png",
+    "composerIcon": "./assets/orbit-logo.png",
+    "brandColor": "#101B30"
+  },
+  "license": "MIT",
+  "keywords": [
+    "secretary",
+    "orchestration",
+    "long-running",
+    "roi",
+    "codex"
+  ]
+}

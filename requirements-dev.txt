@@ -1,0 +1,4 @@
+# Development validation only. The skills-only plugin does not install Python packages.
+PyYAML==6.0.3
+# IANA data is required on Windows and is forced in CI for consistent timezone tests.
+tzdata==2026.3
