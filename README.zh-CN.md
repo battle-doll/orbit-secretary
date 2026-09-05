@@ -1,4 +1,4 @@
-# Orbit Secretary
+# Orbit Secretary (궤도 조정자)
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Русский](README.ru.md)
 
@@ -7,6 +7,12 @@
 ![Orbit Secretary concept illustration: one conversation, selected tasks, Observe · Discuss · Act](assets/social-card.png)
 
 Orbit 是管理长期 Codex 工作的秘书，把多个任务汇总到一个管理对话中。你可以查看变化、讨论下一步是否值得投入，并把范围有限的后续指令委托给它，减少在不同聊天中反复解释背景的负担。
+
+**品牌故事**
+
+> 当无数任务沿着各自的轨道运行时，有这样一个存在：观察、判断、调整轨道，帮助它们避免碰撞。
+
+Orbit 通过对你选定的任务进行 Observe（观察）、Discuss（讨论）和有限的 Act（行动），将这一理念付诸实践。
 
 **v0.2.0-rc.1 · 候选版本 · 尚未公开发布。** 公开发布需要维护者批准。这是采用 MIT 许可证的独立插件，不属于 OpenAI 官方产品，也未获得 OpenAI 背书。
 

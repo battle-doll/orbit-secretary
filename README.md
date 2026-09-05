@@ -1,4 +1,4 @@
-# Orbit Secretary
+# Orbit Secretary (궤도 조정자)
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Русский](README.ru.md)
 
@@ -7,6 +7,12 @@
 ![Orbit Secretary concept illustration: one conversation, selected tasks, Observe · Discuss · Act](assets/social-card.png)
 
 Orbit brings your long-running Codex work into one manager conversation. See what changed, discuss what is worth doing next, and delegate a bounded follow-up across selected tasks without repeating the same context in every chat.
+
+**Brand story**
+
+> When countless tasks follow their own orbits, Orbit watches, weighs the choices and adjusts their courses to help them avoid collisions.
+
+Orbit brings this idea to life through Observe, Discuss, and finite Act on tasks you select.
 
 **v0.2.0-rc.1 · Release candidate · Not publicly released.** Publication requires maintainer approval. This independent, MIT-licensed plugin is not affiliated with or endorsed by OpenAI.
 

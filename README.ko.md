@@ -1,4 +1,4 @@
-# Orbit Secretary
+# Orbit Secretary (궤도 조정자)
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Русский](README.ru.md)
 
@@ -7,6 +7,12 @@
 ![Orbit Secretary concept illustration: one conversation, selected tasks, Observe · Discuss · Act](assets/social-card.png)
 
 Orbit은 오래 이어지는 Codex 작업을 하나의 관리자 대화에서 살펴보는 비서입니다. 무엇이 달라졌는지 확인하고, 다음에 할 가치가 있는 일을 논의하고, 선택한 작업에 한정된 후속 지시를 위임하세요. 채팅마다 같은 맥락을 반복해 설명하는 부담을 줄이는 것이 목표입니다.
+
+**브랜드 스토리**
+
+> 수많은 작업이 각자의 궤도를 돌고 있을 때, 충돌하지 않도록 바라보고 판단하며 궤도를 조정하는 존재.
+
+Orbit은 사용자가 선택한 작업에 대한 Observe(관측), Discuss(논의), 한정된 Act(실행)로 이 생각을 실현합니다.
 
 **v0.2.0-rc.1 · 출시 후보 · 아직 공개 출시되지 않았습니다.** 공개 배포에는 프로젝트 유지관리자의 승인이 필요합니다. MIT 라이선스의 독립 플러그인이며, OpenAI 공식 제품이나 인증을 받은 제품이 아닙니다.
 
