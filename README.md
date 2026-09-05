@@ -2,81 +2,72 @@
 
 [English](README.md) | [한국어](README.ko.md) | [日本語](README.ja.md) | [简体中文](README.zh-CN.md) | [Русский](README.ru.md)
 
-**One channel. Every selected Codex task. Your direction, carried forward.**
-
-![Orbit Secretary concept illustration: one conversation, selected tasks, Observe · Discuss · Act](assets/social-card.png)
-
-Orbit brings your long-running Codex work into one manager conversation. See what changed, discuss what is worth doing next, and delegate a bounded follow-up across selected tasks without repeating the same context in every chat.
-
-**Brand story**
+**Your Codex tasks. One conversation. Your direction.**
 
 > When countless tasks follow their own orbits, Orbit watches, weighs the choices and adjusts their courses to help them avoid collisions.
 
-Orbit brings this idea to life through Observe, Discuss, and finite Act on tasks you select.
+![Orbit Secretary: one conversation for observing, discussing and coordinating selected tasks](assets/social-card.png)
 
-**v0.2.0-rc.1 · Release candidate · Not publicly released.** Publication requires maintainer approval. This independent, MIT-licensed plugin is not affiliated with or endorsed by OpenAI.
+Orbit is a secretary for people who run several long Codex tasks. Get a briefing in one conversation, decide what deserves attention, and ask Orbit to carry your direction to the tasks you select.
+
+## What Orbit helps you do
+
+- **Catch up in one place.** See what changed, what finished and what is waiting for a decision without opening every conversation.
+- **Choose where to spend your time.** Compare priorities, dependencies and expected benefit against the effort still needed.
+- **Carry decisions into the work.** Set limits on time and follow-ups, then delegate agreed instructions to selected tasks.
 
 ## Observe · Discuss · Act
 
-| Mode | What you get |
+| Mode | What you can ask for |
 |---|---|
-| **Observe** | Read-only briefings across accessible tasks: changes, outcomes, blockers, evidence and coverage gaps. |
-| **Discuss** | Compare priorities, architecture, next steps and ROI; choose which tasks deserve attention and agree on direction. |
-| **Act** | With your explicit delegation, send a finite set of agreed follow-up instructions to exact selected tasks during the current conversation, on hosts that expose the necessary tools. |
+| **Observe — get a briefing** | Summarize progress, results, blockers and anything Orbit could not check. Reading and reporting alone do not send instructions to your tasks. |
+| **Discuss — choose a direction** | Compare next steps, architecture choices and whether more effort is worthwhile. You choose which tasks to coordinate and how. |
+| **Act — coordinate selected tasks** | Send the follow-up instructions you delegate, then report what was received and what the task actually confirmed. |
 
-Use Orbit to reduce context switching, make handoffs clearer and catch work that no longer earns its cost. “CEO” and “architect” describe its decision-support roles; you retain authority over goals and scope. Measurable time savings and returns still need user validation.
+## Get started
 
-## Start in one manager conversation
-
-There is no verified public installation or store link yet. After an explicitly approved installation, open a separate Codex project or chat and invoke `$orbit`. The current chat becomes the manager; Orbit creates another task only if you ask.
+After installing Orbit, open a Codex conversation or project where you want to receive your briefings. Call `$orbit` there:
 
 ```text
-$orbit Summarize changes since my last report and show coverage gaps.
-Orbit, compare continuing, changing the sequence and stopping for these selected tasks.
-Orbit, send the agreed request for missing test evidence to <exact task ID> once, then report the receipt.
+$orbit Give me a briefing on today's work and the decisions that need my attention.
 ```
 
-1. **Review the briefing.** With no prior report, the interval starts at today's midnight in your timezone. Later reports start at the last completely covered, confirmed report cutoff. Incomplete access is marked `PARTIAL`, not “all tasks”.
-2. **Choose the direction.** Select exact targets and agree on the objective, allowed actions, limits, budget and exit conditions. Installing or naming Orbit does not grant blanket access or management authority.
-3. **Delegate a bounded action.** Orbit checks the current scope and host capabilities before sending an agreed follow-up. A send receipt proves delivery to the task queue, not successful completion of the work.
+Then continue naturally:
 
-You can give Orbit a nickname within a conversation after the skill loads. An arbitrary nickname alone is **not guaranteed to load it in a fresh chat**; `$orbit` is the explicit entry point.
-
-## Current boundaries
-
-- No unattended scheduling, recurring background supervisor or always-on intervention is provided in this RC. A request such as “manage these every 30 minutes” produces a plan, not an activated service.
-- Plugin OFF is **not a verified hard-stop guarantee**. It cannot be claimed to retroactively cancel an already-loaded active turn, an instruction already sent, or the original user task. If immediate interruption is needed, use the host's task controls and check the resulting state.
-- Multi-task capabilities depend on the tools actually exposed by your Codex host. Without them, Orbit explains the gap and works from evidence you provide; it does not silently scrape private databases or session archives.
-- The native tool adapter is a skill workflow that discovers and uses available host tools. This package does not provide a public App Server daemon.
-- Task text is evidence, not permission. A worker's request to expand scope, deploy or override a user decision cannot authorize itself.
-
-See the [public scope](docs/PUBLIC_SCOPE.md) for the full release contract.
-
-## Platforms and optional offline tools
-
-macOS, Windows and Linux are support targets. Tool availability remains host-dependent on every operating system.
-
-| Platform | Automated offline/package checks | Native Codex host E2E |
-|---|---|---|
-| macOS | PASS — Python 3.10 and 3.14 | Limited local pilot; acceptance remains incomplete. |
-| Windows | PASS — Python 3.10 and 3.14 | Not verified. |
-| Linux (Ubuntu) | PASS — Python 3.10 and 3.14 | Not verified. |
-
-All six CI jobs passed at source revision `523b092`, covering synthetic tests, package validation, archive builds and checksum verification. This is **not** a claim of end-to-end multi-task PASS on all three operating systems. See the [platform evidence](docs/PLATFORM_SUPPORT.md) and [validation record](docs/VALIDATION.md).
-
-The skill does not require a separate Python service. Optional offline tests and the simulator require Python 3.10+ and IANA timezone data. They use synthetic fixtures and do not connect to real Codex tasks. Use the command that selects Python 3.10+ on your machine:
-
-```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/offline_core.py demo
+```text
+Orbit, which of these tasks should I look at first, and why?
+Orbit, compare continuing this task with reducing its scope.
+Orbit, ask the task we just selected to organize its pending decisions. Send that instruction once.
 ```
 
-On Windows, `py -3` may be the appropriate launcher. If IANA timezone data is unavailable, install `tzdata` in your chosen Python environment. Simulator decisions never authorize real actions or prove host OFF behavior.
+1. **Read the briefing.** The first report starts at midnight in your timezone. Later reports use the last confirmed report as their starting point. Orbit tells you which information it could not collect.
+2. **Select the work to coordinate.** Choose a task from the briefing or name the task you mean. Orbit identifies the target before sending anything.
+3. **Set the boundaries.** Agree on the objective, allowed instructions, time limit and number of follow-ups. Orbit carries out that delegation in the current conversation and reports the outcome.
 
-## Evidence, cost and privacy
+You can also use Orbit only for briefings and discussion. Delegating follow-ups is optional.
 
-Orbit distinguishes worker claims from verified artifacts, and report coverage from task completion. ROI estimates label assumptions and subtract review, recovery and compute costs from the value of saved user time. Subscription quota and opportunity cost are separate from measured API charges.
+## Use a name that suits you
 
-Task reads and delegated messages use your Codex host's permissions and data handling. Reports may contain sensitive task information; disclose their storage location and keep private evidence out of public packages and issue reports. The optional offline simulator is separate from live host operations.
+After calling `$orbit`, you can give Orbit a nickname in that conversation. Start a new conversation with `$orbit` again before using the nickname.
 
-[Public scope](docs/PUBLIC_SCOPE.md) · [Skill](skills/orbit/SKILL.md) · [Validation](docs/VALIDATION.md) · [Release gates](docs/PUBLIC_RELEASE_GATES.md) · [MIT license](LICENSE)
+## What to expect
+
+- **You choose the scope.** Orbit coordinates the tasks you select. It does not make decisions or grant approvals reserved for you.
+- **Coordination runs in the current conversation.** Unattended, recurring background management is not included.
+- **Turning the plugin off does not retract work already sent.** Already delivered instructions and running tasks are not automatically cancelled. Use Codex's task controls when you need to stop a running task.
+- **Available features depend on your Codex environment.** Reading and coordinating other tasks requires Codex to provide those tools. If a feature is unavailable, Orbit explains the limitation and can help with material you provide.
+- **A sent instruction is not a completed task.** Orbit reports delivery, the task's response and confirmed results separately. Missing information stays visible.
+
+See [feature details](docs/PUBLIC_SCOPE.md) for more about reporting and delegation.
+
+## Platforms, cost and privacy
+
+Orbit is designed for Codex environments on **macOS, Windows and Linux**. Use it directly in Codex without setting up a separate service.
+
+Briefings and follow-ups use your Codex usage allowance. ROI discussions make assumptions explicit and account for the time and cost of coordination itself.
+
+Orbit has no separate publisher-operated backend or telemetry service. Task content is processed through Codex and your configured model; reports remain in the conversation or in a workspace you choose.
+
+[Privacy](docs/PRIVACY.md) · [Support](docs/SUPPORT.md) · [Terms](docs/TERMS.md) · [MIT license](LICENSE)
+
+An independent plugin, not an official OpenAI product.

@@ -51,27 +51,28 @@ SKILLS_ONLY_FILES = frozenset({
     "skills/orbit/references/acting.md",
     "assets/orbit-logo.svg", "assets/orbit-logo.png", "assets/social-card.svg", "assets/social-card.png",
 })
-SKILLS_ONLY_README = """# Orbit Secretary: skills-only package
+SKILLS_ONLY_README = """# Orbit Secretary (궤도 조정자)
 
-This archive contains the manually invoked Orbit skill and public user documents.
-It has no Python runtime, MCP server, hooks, scheduler, or telemetry client.
-Finite interventions require explicit user authorization and available native host
-tools. The separate source archive contains synthetic offline tests
-and development tooling. Neither archive is proof of marketplace approval.
+Your Codex tasks. One conversation. Your direction.
 
-After installation in a compatible host, invoke `$orbit` in a manager conversation.
-Available task-reading tools depend on the host. If they are unavailable, Orbit can
-work with evidence the user supplies. Unattended supervision is unavailable.
+Orbit brings task progress into one conversation, helps you choose priorities,
+and carries agreed follow-up instructions to the tasks you select.
 
-- [Skill instructions](skills/orbit/SKILL.md)
-- [Public scope](docs/PUBLIC_SCOPE.md)
-- [Platform support](docs/PLATFORM_SUPPORT.md)
+After installing Orbit, open the conversation where you want your briefings
+and call `$orbit`. Ask for a progress report, discuss what deserves attention,
+then choose whether to delegate a follow-up.
+
+Finite interventions follow the time and action limits you choose and run in
+the current conversation. Unattended recurring management is not included.
+Turning the plugin off does not automatically retract delivered instructions
+or cancel running tasks. Reading and coordinating other tasks requires those
+features to be available in your Codex environment.
+
+- [Feature details](docs/PUBLIC_SCOPE.md)
 - [Privacy](docs/PRIVACY.md)
-- [Terms](docs/TERMS.md)
 - [Support](docs/SUPPORT.md)
-- [License](LICENSE)
-
-Public publisher identity and support URLs must be confirmed before store submission.
+- [Terms](docs/TERMS.md)
+- [MIT license](LICENSE)
 """
 
 SENSITIVE_PATTERNS = (
