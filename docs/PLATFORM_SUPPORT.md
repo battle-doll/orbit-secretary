@@ -4,12 +4,29 @@ Status: release candidate. Platform targets and completed validation are separat
 
 | Component | macOS | Windows | Linux |
 |---|---|---|---|
-| Skills-only package | Target platform; installation and routing still need acceptance evidence | Target platform; not yet validated | Target platform; not yet validated |
-| Offline Python model, tests and packaging | Local development checks performed; see the release validation record for exact interpreter/results | CI configured; no result is claimed until the workflow completes | CI configured; no result is claimed until the workflow completes |
+| Skills-only installation, routing and native Codex host E2E | Limited local pilot; acceptance remains incomplete | Target platform; host E2E not verified | Target platform; host E2E not verified |
+| Offline Python model, tests and packaging | CI PASS on Python 3.10 and 3.14 | CI PASS on Python 3.10 and 3.14 | CI PASS on Python 3.10 and 3.14 using Ubuntu runners |
 | Observe / Discuss / finite authorized Act | Requires the current host's callable task tools | Same capability requirement; OS support alone does not imply tool availability | Same capability requirement; OS support alone does not imply tool availability |
 | Unattended scheduling and complete OFF cancellation | Not provided | Not provided | Not provided |
 
 The skill itself does not install or require Python. The separate source archive uses Python 3.10 or later plus IANA timezone data. CI covers the minimum interpreter, Python 3.10, and Python 3.14 on `ubuntu-latest`, `macos-latest` and `windows-latest`. Intermediate Python versions are compatibility targets, not individually verified by that matrix. Runner labels and host product versions can change.
+
+## Verified automated matrix
+
+[GitHub Actions run 33975743031](https://github.com/battle-doll/orbit-secretary/actions/runs/33975743031) completed successfully on 2026-09-05 UTC for source revision `523b09270f94d6b9732704259a3c6dd465594228`. All six jobs and their validation steps were inspected; this evidence applies to that revision, not automatically to subsequent changes.
+
+| Actual job | Result | Job ID |
+|---|---|---|
+| `macos-latest / Python 3.10` | PASS | `101332002223` |
+| `macos-latest / Python 3.14` | PASS | `101332002353` |
+| `windows-latest / Python 3.10` | PASS | `101332002405` |
+| `windows-latest / Python 3.14` | PASS | `101332002508` |
+| `ubuntu-latest / Python 3.10` | PASS | `101332002373` |
+| `ubuntu-latest / Python 3.14` | PASS | `101332002410` |
+
+Each job passed package scope/syntax/link validation, synthetic and packaging tests, the offline-only demonstration, deterministic source and skills-only archive builds, and archive/checksum verification. Review artifacts were retained without publishing a release.
+
+These checks execute offline utilities and packaging on the three runner operating systems. They do not exercise native Codex task discovery, skill routing, message dispatch, receipts, user permissions or plugin OFF behavior. Windows and Linux host E2E remain unverified, and the macOS local pilot does not complete host acceptance. No all-platform native Codex E2E PASS is claimed.
 
 ## Development setup
 

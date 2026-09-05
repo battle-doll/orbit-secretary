@@ -50,13 +50,13 @@ See the [public scope](docs/PUBLIC_SCOPE.md) for the full release contract.
 
 macOS, Windows and Linux are support targets. Tool availability remains host-dependent on every operating system.
 
-| Platform | Current validation status |
-|---|---|
-| macOS | Local validation environment; refer to the validation record for the cases actually exercised. |
-| Windows | CI coverage is planned; Windows execution has not been verified. |
-| Linux | CI coverage is planned; Linux execution has not been verified. |
+| Platform | Automated offline/package checks | Native Codex host E2E |
+|---|---|---|
+| macOS | PASS — Python 3.10 and 3.14 | Limited local pilot; acceptance remains incomplete. |
+| Windows | PASS — Python 3.10 and 3.14 | Not verified. |
+| Linux (Ubuntu) | PASS — Python 3.10 and 3.14 | Not verified. |
 
-This is **not** a claim of end-to-end multi-task PASS on all three operating systems. See the [validation record](docs/VALIDATION.md).
+All six CI jobs passed at source revision `523b092`, covering synthetic tests, package validation, archive builds and checksum verification. This is **not** a claim of end-to-end multi-task PASS on all three operating systems. See the [platform evidence](docs/PLATFORM_SUPPORT.md) and [validation record](docs/VALIDATION.md).
 
 The skill does not require a separate Python service. Optional offline tests and the simulator require Python 3.10+ and IANA timezone data. They use synthetic fixtures and do not connect to real Codex tasks. Use the command that selects Python 3.10+ on your machine:
 

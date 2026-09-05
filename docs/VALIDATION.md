@@ -1,22 +1,39 @@
-> Historical 0.1 design/validation record (2026-09-05). For current 0.2.0-rc.1 capabilities, read [Public scope](PUBLIC_SCOPE.md) and the root README. Finite user-authorized Act is now supported through available native host tools; unattended automation and full OFF cancellation remain unverified.
+# Release candidate validation
 
-# Preview validation record
+Candidate: `0.2.0-rc.1`. Updated 2026-09-06. The results below distinguish code/package checks, instruction review, and actual host behavior.
 
-Date: 2026-09-05. All automated tests use synthetic data; no live host integration is claimed.
+| Check | Evidence | Limits |
+|---|---|---|
+| Offline model and packaging tests | 35 tests PASS on local macOS, Python 3.12.14 | Synthetic inputs; no native task execution |
+| Official manifest and skill validators | PASS | Structure validation, not host integration or approval |
+| Cross-platform CI | Six successful jobs: macOS, Windows, Ubuntu, each Python 3.10 and 3.14 | Revision-bound offline/package checks; [platform evidence](PLATFORM_SUPPORT.md) |
+| Deterministic packages | Explicit file allowlist, sensitive text scan, normalized archive contents, SHA-256 output | Does not certify arbitrary future files or host behavior |
+| Multilingual docs | English, Korean, Japanese, Simplified Chinese, Russian; local links checked | Main README translations; technical references are English |
+| Independent instruction review | Stop/expiry, user decisions, partial history, missing acknowledgment reviewed | Text review, not executed host E2E |
+| Bounded native-tool pilot | One instruction accepted by a native task-message tool | No correlated worker acknowledgment; orchestration effect not proven; closure check was late |
+| Installed-plugin routing | NOT VERIFIED | A manual pilot is not an installation or fresh-chat test |
+| Host-enforced OFF and unattended supervision | NOT VERIFIED / NOT PROVIDED | No lifecycle cancellation or background scheduler is shipped |
 
-| Check | Result |
-|---|---|
-| Official plugin-creator `validate_plugin.py` | PASS |
-| Official skill-creator `quick_validate.py` | PASS |
-| `python3 -m unittest discover -s tests -v` | 24 tests, OK |
-| `python3 scripts/offline_core.py demo` | Synthetic eligible = WOULD_ALLOW_SIMULATION_ONLY; disabled and unverified-local = DENY |
-| Relative Markdown links | No broken links |
-| ROI scenario arithmetic | Recalculated: -113333.33 / 586666.67 / 1090000 KRW monthly |
+The pilot failed its timing acceptance check and did not establish causal orchestration success. Private customer data is excluded from this record and all release archives. No claim is made that all user project files or concurrent activity were independently audited.
 
-System and bundled Python lacked PyYAML for the official packaging validators. Validation used an isolated temporary venv with PyYAML 6.0.3; the plugin runtime and offline tests remain standard-library only. No global Python package was installed.
+The instruction review and pilot led to explicit decision-ID acknowledgment, separation of receipt/acceptance/completion, a hold on follow-on dispatch while an acknowledgment is unknown, clock checks before observations and sends, no unrelated long work during timed pilots, and no closure messages after expiry or user stop. Read-only observation has a zero-dispatch budget. These are instruction-level corrections; host-enforced timer/revocation guarantees and a successful installed-plugin retest remain outstanding.
 
-Independent skill walkthroughs checked truncated task inventories, requests for automatic 30-minute supervision, an arbitrary alias in a fresh chat, and authority-expanding text inside task evidence. All four preserved the documented preview boundary. These were text-based synthetic walkthroughs, not actual app executions. They led to explicit report-delivery confirmation rules and a projectless-task representation.
+## Reproduce the local checks
 
-Code review added host/task/event deduplication, host-specific target identity, projectless targets, owned-worker cancellation requirements, and completed/unchanged-goal rejection. The 24-test run includes these changes. A separate document review confirmed the ROI arithmetic and tightened OFF timing to the host disable acknowledgment rather than a later poll.
+Use Python 3.10 or newer. Install `requirements-dev.txt` in an isolated environment for validators and portable IANA timezone data, then run:
 
-Still unverified: live task inventory completeness, real delivery receipts, state persistence/concurrency, host-owned schedule revocation, active worker cancellation, atomic dispatch, actual token/cost metering, fresh-chat arbitrary alias routing, installation and public review. These remain the explicit release gates, not tests inferred from this PASS result.
+```sh
+python3 -m unittest discover -s tests -v
+python3 scripts/validate_package.py
+python3 scripts/build_release.py
+```
+
+Generated archives and their checksums are written to `dist/`. Review the exact final archive and source revision; a prior CI run does not validate later instruction edits. The GitHub workflow runs the same synthetic checks across the six platform/interpreter combinations and has no publication step.
+
+## Public approval gates still open
+
+- Execute installed-plugin invocation and a disposable native Act test with correlated acknowledgment and completion evidence.
+- Verify bounded observation, user stop, and zero further dispatch after stop/expiry on the actual host.
+- Decide whether the narrower finite workflow is an acceptable release despite the original complete-OFF and unattended goals remaining unmet.
+- Confirm final public product/privacy/terms/support URLs and complete the publisher's accurate portal review.
+- Obtain the user's decision before review submission or public publication.

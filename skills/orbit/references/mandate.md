@@ -15,7 +15,7 @@ Required fields:
 | expiry / exit | End time, success condition, stop conditions, user handback |
 | approval receipt | User decision reference bound to the complete mandate version |
 
-For current-conversation Act, identify exact tasks, a finite time window, and a small dispatch cap. For example, a user-requested ten-minute read-only pilot can use at most two bounded instructions plus one necessary closure message. These are proposed ceilings, never implied approval. Recurring schedules are future design only and unavailable in this release.
+For current-conversation Act, identify exact tasks, an absolute deadline including timezone, and a small total dispatch cap. For example, a user-authorized ten-minute Act pilot may allow at most two instructions in total, including any closure before the deadline. Read-only observation allows zero instructions. No closure is allowed after expiry or user stop. These are proposed ceilings, never implied approval. Recurring schedules are future design only and unavailable in this release.
 
 Within an approved direction, useful interventions include asking for missing evidence, sequencing a prerequisite, restating acceptance criteria, and requesting a bounded alternative. An active worker should normally finish its current turn. If the user explicitly authorized coordination of that running task, send at most a scoped additive instruction that preserves its latest user request; do not interrupt execution. A user-approval wait permits organizing evidence or decisions if requested, never answering or approving on the user's behalf.
 
