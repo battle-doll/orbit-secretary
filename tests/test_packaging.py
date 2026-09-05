@@ -89,6 +89,7 @@ class PackagingTests(unittest.TestCase):
             files = {name: archive.read(name) for name in archive.namelist()}
         self.assertIn(".codex-plugin/plugin.json", files)
         self.assertIn("skills/orbit/references/acting.md", files)
+        self.assertIn("skills/orbit/references/delegation.md", files)
         self.assertFalse(any(name.endswith(".py") or name.startswith(("scripts/", "tests/", ".github/")) for name in files))
         self.assertEqual(validation.broken_links(files), [])
         self.assertIn(b"Finite interventions", files["README.md"])

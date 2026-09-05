@@ -5,3 +5,7 @@ __pycache__/
 dist/
 private/
 .venv/
+release/
+docs/ARCHITECTURE.ko.md
+docs/PRODUCT_AND_ROI.ko.md
+docs/SUBMISSION_DRAFT.md

@@ -8,7 +8,7 @@
 
 ![Orbit Secretary: one conversation for observing, discussing and coordinating selected tasks](assets/social-card.png)
 
-Orbit is a secretary for people who run several long Codex tasks. Get a briefing in one conversation, decide what deserves attention, and ask Orbit to carry your direction to the tasks you select.
+Orbit is a secretary for people who run several long Codex tasks. Get the essentials in one conversation, decide what deserves attention, and ask Orbit to carry your direction to the tasks you select.
 
 ## What Orbit helps you do
 
@@ -20,9 +20,11 @@ Orbit is a secretary for people who run several long Codex tasks. Get a briefing
 
 | Mode | What you can ask for |
 |---|---|
-| **Observe — get a briefing** | Summarize progress, results, blockers and anything Orbit could not check. Reading and reporting alone do not send instructions to your tasks. |
+| **Observe — get a briefing** | Lead with progress, meaningful blockers and decisions for you. Important failures and uncertainty stay visible. Reading and reporting alone do not send instructions to your tasks. |
 | **Discuss — choose a direction** | Compare next steps, architecture choices and whether more effort is worthwhile. You choose which tasks to coordinate and how. |
-| **Act — coordinate selected tasks** | Send the follow-up instructions you delegate, then report what was received and what the task actually confirmed. |
+| **Act — coordinate selected tasks** | Send the instructions you delegate, briefly report what is known — received, started or still unknown — and return to you without waiting for completion. |
+
+Ask for details, evidence or the full available task list when needed. One detailed request does not change the concise default for later replies.
 
 ## Get started
 
@@ -42,9 +44,15 @@ Orbit, ask the task we just selected to organize its pending decisions. Send tha
 
 1. **Read the briefing.** The first report starts at midnight in your timezone. Later reports use the last confirmed report as their starting point. Orbit tells you which information it could not collect.
 2. **Select the work to coordinate.** Choose a task from the briefing or name the task you mean. Orbit identifies the target before sending anything.
-3. **Set the boundaries.** Agree on the objective, allowed instructions, time limit and number of follow-ups. Orbit carries out that delegation in the current conversation and reports the outcome.
+3. **Set the boundaries.** Agree on the objective, allowed instructions, time limit and number of follow-ups. Orbit passes on those instructions in the current conversation, gives a short handoff update and returns to you.
 
 You can also use Orbit only for briefings and discussion. Delegating follow-ups is optional.
+
+**Does Orbit do the work itself?**
+
+Orbit handles quick answers, status, priorities and handoff updates directly. Benchmarks and work estimated to take **1 minute or more** normally go to another worker. Work estimated at **10 minutes or more** is handed off; if there is no authorized way to do that, Orbit prepares the handoff and explains what is missing instead of doing the long job itself.
+
+For unavoidable direct work estimated at 1 to under 10 minutes, Orbit briefly explains why and limits the scope. Your later explicit request to do a particular job directly takes precedence. These thresholds are work estimates, not timers or schedules. Orbit creates a new task in your task list only when you explicitly ask.
 
 ## Use a name that suits you
 

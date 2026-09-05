@@ -1,39 +1,45 @@
-# Release candidate validation
+# Validation evidence
 
-Candidate: `0.2.0-rc.1`. Updated 2026-09-06. The results below distinguish code/package checks, instruction review, and actual host behavior.
+Version: `0.2.0`. Updated 2026-09-06. This version adds public defaults for delegation and concise reporting. Package checks, host behavior and marketplace status are separate claims.
 
-| Check | Evidence | Limits |
+## Current local evidence
+
+| Check | Result | What it establishes |
 |---|---|---|
-| Offline model and packaging tests | 35 tests PASS on local macOS, Python 3.12.14 | Synthetic inputs; no native task execution |
-| Official manifest and skill validators | PASS | Structure validation, not host integration or approval |
-| Cross-platform CI | Six successful jobs: macOS, Windows, Ubuntu, each Python 3.10 and 3.14 | Revision-bound offline/package checks; [platform evidence](PLATFORM_SUPPORT.md) |
-| Deterministic packages | Explicit file allowlist, sensitive text scan, normalized archive contents, SHA-256 output | Does not certify arbitrary future files or host behavior |
-| Multilingual docs | English, Korean, Japanese, Simplified Chinese, Russian; local links checked | Main README translations; technical references are English |
-| Independent instruction review | Stop/expiry, user decisions, partial history, missing acknowledgment reviewed | Text review, not executed host E2E |
-| Bounded native-tool pilot | One instruction accepted by a native task-message tool | No correlated worker acknowledgment; orchestration effect not proven; closure check was late |
-| Installed-plugin routing | NOT VERIFIED | A manual pilot is not an installation or fresh-chat test |
-| Host-enforced OFF and unattended supervision | NOT VERIFIED / NOT PROVIDED | No lifecycle cancellation or background scheduler is shipped |
+| Complete local test suite | 53 tests PASS on macOS / Python 3.12.14 | 24 offline model tests, 18 delegation reference tests and 11 packaging tests |
+| Official skill and manifest validators | PASS | Supported structure and metadata |
+| Routing boundaries | 59 / 60 / 599 / 600 seconds covered | Short permitted direct work, default delegation and ten-minute mandatory delegation in the reference evaluator |
+| Exceptions and growth | PASS | Short benchmarks, whole-work elapsed-plus-remaining growth, unknown estimates, bounded unavoidable direct work, exact user overrides and scope denial |
+| Worker selection and handback | PASS | Authorized existing-task preference, host-authorized internal agents, explicitly requested new tasks, missing paths and one nonblocking snapshot then return |
+| Evidence state classification | PASS | Send receipt, acceptance, running, unverified completion and verified completion remain distinct |
+| Independent report walkthrough | Eight synthetic responses reviewed, plus one clarified case | Routine progress, meaningful blocker, user decision, requested detail, return to concise reporting, unverified results, prompt handback and missing delegation path |
+| Controlled internal-agent handoff | Correlated acceptance and correct synthetic output observed; manager returned without waiting | Real internal-agent messaging, not installed-plugin discovery or native task E2E |
+| Capacity failure fallback | One failed spawn returned without retry or polling | Accurate failure reporting when the host has no available worker slot |
+| Public defaults in package | Required skill and references included in skills-only package | Common behavior does not depend on a nickname, manager chat or personal configuration |
 
-The pilot failed its timing acceptance check and did not establish causal orchestration success. Private customer data is excluded from this record and all release archives. No claim is made that all user project files or concurrent activity were independently audited.
+The complete local suite is rerun against the release tree after the code changes. The independent walkthrough used supplied fictional task evidence and did not read, send to, wait on, or modify any real task. The walkthrough distinguishes an effort estimate from an authorized runtime limit. Unknown estimates with an exact direct-handling request require a short scoping step. Extreme finite inputs whose total cannot be represented safely also become an unknown estimate instead of raising an overflow exception.
 
-The instruction review and pilot led to explicit decision-ID acknowledgment, separation of receipt/acceptance/completion, a hold on follow-on dispatch while an acknowledgment is unknown, clock checks before observations and sends, no unrelated long work during timed pilots, and no closure messages after expiry or user stop. Read-only observation has a zero-dispatch budget. These are instruction-level corrections; host-enforced timer/revocation guarantees and a successful installed-plugin retest remain outstanding.
+## Code versus host behavior
 
-## Reproduce the local checks
+`scripts/delegation_policy.py` is a pure, source-only reference evaluator. Its code decides routes and classifies supplied evidence, with `enforcement_scope=reference_only` and no execution authority. It has no tool access, scheduler, clock, persistent counter or authenticated permission checks. Input evidence must be established separately by the host workflow. Carrying a snapshot count between pure function calls is not host-enforced polling control.
 
-Use Python 3.10 or newer. Install `requirements-dev.txt` in an isolated environment for validators and portable IANA timezone data, then run:
+The installed behavior is expressed by `skills/orbit/SKILL.md` and its delegation, acting, mandate and reporting references. The skills-only archive includes these instructions and excludes Python/test runtime files. No host-enforced timer, mandatory dispatch gate, automatic completion notification or OFF cancellation was added. Synthetic test success is not evidence that every host will execute those instructions correctly.
+
+## Prior evidence remains separate
+
+The earlier native-tool pilot established one transport receipt but no correlated worker acknowledgment. Its orchestration effect was not proven, and its closure check was late. That earlier pilot is not claimed as a pass or as a test of this candidate. A separate controlled internal-agent test exercised a known capacity failure and a permitted existing-worker route. The manager reported the correlated acceptance without waiting; the coordinating test observed the subsequent correct three-item synthetic result. No real project data was used. This does not test installed-plugin discovery, task inventory or plugin OFF.
+
+Six cross-platform CI jobs passed on an earlier revision; [platform evidence](PLATFORM_SUPPORT.md) identifies that exact revision. The release tree is also checked by the repository CI workflow; its results apply only to the commit identified by the run. CI executes offline tests and packaging, and does not establish all-platform native Codex acceptance.
+
+## Reproduce
+
+Use Python 3.10 or newer with `requirements-dev.txt` in an isolated environment:
 
 ```sh
-python3 -m unittest discover -s tests -v
-python3 scripts/validate_package.py
-python3 scripts/build_release.py
+python -m unittest discover -s tests -v
+python scripts/validate_package.py
+python scripts/build_release.py
+python scripts/build_release.py --verify
 ```
 
-Generated archives and their checksums are written to `dist/`. Review the exact final archive and source revision; a prior CI run does not validate later instruction edits. The GitHub workflow runs the same synthetic checks across the six platform/interpreter combinations and has no publication step.
-
-## Public approval gates still open
-
-- Execute installed-plugin invocation and a disposable native Act test with correlated acknowledgment and completion evidence.
-- Verify bounded observation, user stop, and zero further dispatch after stop/expiry on the actual host.
-- Decide whether the narrower finite workflow is an acceptable release despite the original complete-OFF and unattended goals remaining unmet.
-- Confirm final public product/privacy/terms/support URLs and complete the publisher's accurate portal review.
-- Obtain the user's decision before review submission or public publication.
+The builder uses an explicit public-file allowlist, sensitive-text checks and deterministic archives. It produces separate source and skills-only ZIPs with SHA-256 records. Verify the exact candidate archive before distribution. No installation, submission or publication step is performed by these commands.

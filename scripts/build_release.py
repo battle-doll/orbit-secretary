@@ -30,9 +30,9 @@ PUBLIC_FILES = frozenset({
     "examples/offline-fixtures.md",
     "skills/orbit/SKILL.md", "skills/orbit/agents/openai.yaml",
     "skills/orbit/references/reporting.md", "skills/orbit/references/mandate.md",
-    "skills/orbit/references/acting.md",
-    "scripts/offline_core.py", "scripts/build_release.py", "scripts/validate_package.py",
-    "tests/test_offline_core.py", "tests/test_packaging.py",
+    "skills/orbit/references/acting.md", "skills/orbit/references/delegation.md",
+    "scripts/offline_core.py", "scripts/delegation_policy.py", "scripts/build_release.py", "scripts/validate_package.py",
+    "tests/test_offline_core.py", "tests/test_delegation_policy.py", "tests/test_packaging.py",
     "assets/orbit-logo.svg", "assets/orbit-logo.png", "assets/social-card.svg", "assets/social-card.png",
 })
 OPTIONAL_PUBLIC_FILES = frozenset({
@@ -48,7 +48,7 @@ SKILLS_ONLY_FILES = frozenset({
     "docs/PLATFORM_SUPPORT.md", "docs/PRIVACY.md", "docs/TERMS.md", "docs/SUPPORT.md",
     "skills/orbit/SKILL.md", "skills/orbit/agents/openai.yaml",
     "skills/orbit/references/reporting.md", "skills/orbit/references/mandate.md",
-    "skills/orbit/references/acting.md",
+    "skills/orbit/references/acting.md", "skills/orbit/references/delegation.md",
     "assets/orbit-logo.svg", "assets/orbit-logo.png", "assets/social-card.svg", "assets/social-card.png",
 })
 SKILLS_ONLY_README = """# Orbit Secretary (궤도 조정자)
@@ -56,14 +56,23 @@ SKILLS_ONLY_README = """# Orbit Secretary (궤도 조정자)
 Your Codex tasks. One conversation. Your direction.
 
 Orbit brings task progress into one conversation, helps you choose priorities,
-and carries agreed follow-up instructions to the tasks you select.
+and carries agreed follow-up instructions to the tasks you select. Reports start
+with the essentials: progress, meaningful blockers and decisions for you.
+Ask for details when you need them; important problems and uncertainty stay visible.
 
 After installing Orbit, open the conversation where you want your briefings
 and call `$orbit`. Ask for a progress report, discuss what deserves attention,
 then choose whether to delegate a follow-up.
 
 Finite interventions follow the time and action limits you choose and run in
-the current conversation. Unattended recurring management is not included.
+the current conversation. Orbit normally delegates benchmarks and work estimated
+at a minute or more; work estimated at ten minutes or more goes to an authorized
+worker. Without an available route, Orbit prepares the handoff instead of taking
+on long work in the manager conversation. An unavoidable shorter direct action
+needs a brief explanation, and you can explicitly request a direct exception for
+a specific task. After sending, Orbit briefly reports the known state and returns
+to you rather than waiting for completion. These are estimated-work routing rules.
+Unattended recurring management is not included.
 Turning the plugin off does not automatically retract delivered instructions
 or cancel running tasks. Reading and coordinating other tasks requires those
 features to be available in your Codex environment.

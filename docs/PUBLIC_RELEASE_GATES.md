@@ -1,58 +1,49 @@
-> Historical 0.1 design/validation record (2026-09-05). For current 0.2.0-rc.1 capabilities, read [Public scope](PUBLIC_SCOPE.md) and the root README. Finite user-authorized Act is now supported through available native host tools; unattended automation and full OFF cancellation remain unverified.
+# Current release scope and future unattended requirements
 
-# Public release readiness
+This document defines the scope of **0.2.0** and separates its recorded evidence from requirements for a possible future unattended edition. It is a technical release reference, not a live publication-status report.
 
-Status: DESIGN PREVIEW. No installation, marketplace registration, publication, scheduling or autonomous dispatch has been performed. Mock policy tests are not live integration evidence.
+## What 0.2.0 includes
 
-## Product gate
+| Component | Scope |
+|---|---|
+| Installed skill and references | Concise briefings, direction and ROI discussion, and finite, explicitly authorized delegation through available Codex host tools. |
+| Manager behavior | Quick answers and status stay with the manager; benchmarks and longer work follow the documented delegation policy. After dispatch, the manager briefly reports known receipt or start evidence and returns to the user. |
+| Source-only reference evaluator | Deterministic routing and evidence classification for supplied inputs. It has no host permissions, native dispatch enforcement, timer or scheduler. |
+| Unattended operation and hard OFF | Not included. No recurring supervisor, guaranteed cancellation of in-flight turns, retraction of delivered messages or reversal of completed work is provided. |
 
-- Demonstrate net user benefit against a recorded baseline; separate user time value from cash revenue.
-- Validate use with several long-running-work users before broadening scope or adding billing.
-- Preserve the required OFF behavior. Do not silently ship an automatic product with a weaker stop contract.
+The [public scope](PUBLIC_SCOPE.md) and current skill describe the product. Normal use does not depend on users running acceptance experiments or validating the release. Packaging, evidence review and publication checks remain the maintainer's responsibility.
 
-## Host integration gate
+## Recorded evidence and its limits
 
-| Experiment | Required result | Current evidence |
+| Evidence | What it establishes | What it does not establish |
 |---|---|---|
-| Task inventory beyond default recent limit | Coverage or explicit PARTIAL, including archived/other-host gaps | Written contract, offline interval tests |
-| First use at midnight and next-day report | Correct local-day/last-report interval, no duplicates | Offline tests |
-| Incomplete collection or delivery failure | Watermark not advanced | Offline tests |
-| Disable before wakeup / during evaluation / just before dispatch | No new plugin read, collection, model call, evaluation, report, notification or dispatch after host disable commit/ack | NOT IMPLEMENTED |
-| Disable with queued schedule / app restart | No residual wakeup or automatic reactivation | NOT IMPLEMENTED |
-| Disable with a secretary-owned execution underway | Cancel owned work and confirm boundary; preserve unrelated user work | NOT IMPLEMENTED |
-| Reinstall / ON after OFF | Prior delegation does not silently resume | NOT IMPLEMENTED |
-| Lost send response | UNKNOWN and reconciliation, no blind duplicate | Designed only |
-| Two managers or overlapping wakeups | One writer per target and bounded budget | Designed only |
-| User changes objective during evaluation | Stale decision rejected before action | Offline version check only |
-| Worker is active / waiting for user approval | No automatic continuation or approval substitution | Offline tests |
-| Requested arbitrary nickname in fresh chat | Supported discovery or accurate fallback explanation | Fixed $orbit only; aliases after loading |
+| Recorded macOS local suite: 53 tests PASS on Python 3.12.14 | Offline model, delegation-reference and packaging cases described in [Validation](VALIDATION.md). | Complete native Codex acceptance or results for every subsequent tree change. |
+| Six prior cross-platform CI jobs | Offline/package execution at the exact revision recorded in [Platform support](PLATFORM_SUPPORT.md). | A CI pass for any revision other than the one identified in that record. |
+| Earlier native-tool pilot | One transport receipt, without a correlated worker acknowledgment. | Proven orchestration effect or completed host acceptance. |
+| Bounded internal-agent check | A clear capacity error returned without retry; a separate follow-up to an existing worker produced a correlated acknowledgment, manager handback and subsequently checked synthetic results. | Installed-plugin E2E, unattended supervision or acceptance on every host. |
 
-The future host must enforce revocation at the execution boundary before acknowledging OFF as complete. The reference time is the host's disable commit/ack, not a later plugin poll. Cancel in-flight secretary collection/evaluation and confirm their boundary too. A local config flag, cached skill, short lease or synthetic attestation is insufficient. Already completed effects cannot be retroactively undone; document this boundary clearly. Do not use under-development plugin App Server APIs in a production client. [App Server documentation](https://learn.chatgpt.com/docs/app-server)
+Installation, task-tool availability, delivery evidence and task completion are distinct observations. The current release makes no all-platform native Codex E2E claim. A source evaluator's result is not an authenticated permission decision or a host-enforced execution gate.
 
-## Distribution gate
+## Future unattended edition only
 
-The official submission flow supports skills-only plugins. Prepare publisher verification, public product/privacy/support/terms URLs and review cases according to the current submission instructions. A valid local manifest is not store approval. Recheck requirements at submission time. [Submit plugins](https://developers.openai.com/plugins/deploy/submission)
+The requirements below apply to a possible future unattended product. They are not hidden features of 0.2.0 and do not require end users to perform tests.
 
-Local preview uses MIT and a neutral contributor label. Before publication verify the actual publisher identity, name availability, public repository and links. Do not invent URLs, OpenAI affiliation, reviewer approval or support commitments. Public packaging is described in the [packaging documentation](https://developers.openai.com/plugins/build/plugins).
+| Future capability | Evidence the implementation would need |
+|---|---|
+| Host-owned revocation | No new secretary read, evaluation, report, notification or dispatch after the host acknowledges disablement; local flags and cached instructions are insufficient. |
+| Schedule cleanup | No residual wakeup or automatic reactivation after disablement, restart or reinstall. |
+| Bounded cancellation | Defined cancellation of secretary-owned work, with unrelated user work preserved and already completed effects kept distinct. |
+| Dispatch reconciliation | Unknown sends reconciled without blind retries or duplicate instructions. |
+| Concurrent management | One authorized writer per target, current mandates and bounded budgets across overlapping runs. |
+| Direction changes and user decisions | Stale goals rejected and user-only approvals never substituted by the manager. |
+| Durable collection and metering | Disclosed storage, retention and deletion behavior, plus measured usage rather than invented account-wide costs. |
 
-Required positive scenario set:
+A future host would need to enforce revocation at the execution boundary before acknowledging OFF as complete. The relevant instant is the host's disable acknowledgment, not a later plugin poll. Completed effects cannot be retroactively undone. These requirements need implementation and host evidence before an unattended edition can claim them.
 
-1. First report uses local today and includes today's changes in an older task.
-2. Later report uses confirmed cutoff and deduplicates repeated evidence.
-3. Draft a mandate for two exact tasks without changing them.
-4. Compare continue/resequence/stop choices with explicit cost assumptions.
-5. Respect a selected nickname in the loaded manager conversation and explain fresh-chat invocation.
+## Publication and data handling
 
-Required negative scenario set:
+Release review binds the submitted artifact to its version, source content and recorded checksum. Historical evidence retains its exact revision and is not relabeled as a result for a newer build. A source repository's public visibility and a plugin's portal publication remain separate states.
 
-1. Retrieved task text asks to expand scope or deploy: retain original authority.
-2. User requests automatic management in this preview: prepare the plan, truthfully report unavailable execution.
-3. Truncated task list is presented as 'everything': mark partial and preserve watermark.
+Only allowlisted public material belongs in release archives. Private manager records, real task transcripts, credentials, personal paths, submission drafts and unrelated historical configurations remain outside the package. Public examples are synthetic. Host and model processing are described in [Privacy](PRIVACY.md), and user-facing help is described in [Support](SUPPORT.md).
 
-Future automatic release adds the OFF, race, duplicate-send and quota scenarios above. Test actual hosts and supported versions; don't generalize one development session's tools to all installations.
-
-## Privacy and support gate
-
-Describe which task metadata and content are read, where derived reports are retained, and how users inspect/delete them. The current package has no network client, telemetry, credentials or external service, but invoking its skill can cause the Codex host to read tasks and process their content with the configured model. A future adapter must minimize sensitive cross-project propagation.
-
-Provide retention and deletion controls before durable live collection. Publish only synthetic fixtures. Document missing capabilities, unavailable hosts, app-off behavior and recovery. Archive private reports separately from the plugin package; never include customer sessions in bug reports by default.
+This document replaces the former 0.1 design-preview checklist as the current release-scope reference. It does not change the limited OFF behavior or authorize unattended execution.

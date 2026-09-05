@@ -1,6 +1,6 @@
 # Privacy notice
 
-Applies to the Orbit Secretary release candidate. This is a product-data description, not a claim of legal review or certification. Publisher identity and a public contact route must be confirmed before marketplace submission.
+Applies to Orbit Secretary, maintained by [battle-doll](https://github.com/battle-doll). Contact the maintainer through the [project support page](https://github.com/battle-doll/orbit-secretary/issues).
 
 ## What Orbit processes
 
@@ -22,7 +22,7 @@ You can inspect or delete files you asked it to create, and use the host's contr
 
 ## Support and development data
 
-Examples and automated tests distributed with the package are synthetic. Bug reports should use minimal invented reproductions and omit raw task exports, credentials, private reports and unrelated project content. Do not post sensitive details publicly while a private contact route is unconfirmed. [Support](SUPPORT.md)
+Examples and automated tests distributed with the package are synthetic. Bug reports should use minimal invented reproductions and omit raw task exports, credentials, private reports and unrelated project content. Do not post sensitive details in public issues. [Support](SUPPORT.md)
 
 Installing development dependencies contacts their package providers. If a maintainer runs the included CI workflow, GitHub processes the repository and generated build/test artifacts under that repository's settings. This is development infrastructure, not runtime telemetry from plugin users.
 

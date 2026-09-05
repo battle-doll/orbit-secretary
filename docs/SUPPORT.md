@@ -1,12 +1,12 @@
 # Support
 
-Status: release candidate. A public support URL and private contact route have not yet been confirmed for marketplace submission. No address or service-level commitment is implied by this file. The publisher must fill the verified routes in the release checklist before submitting.
+Report reproducible problems or request improvements through [GitHub Issues](https://github.com/battle-doll/orbit-secretary/issues). Orbit Secretary is maintained by [battle-doll](https://github.com/battle-doll). Support is provided on a best-effort basis, with no guaranteed response time.
 
 ## Before reporting a problem
 
 Record the package version, operating system, Codex host/version if visible, the action requested and whether the required native task tools were available. For source-tool problems, include Python version and the failing command's redacted output. Distinguish a missing host capability from a package defect.
 
-Use a minimal synthetic reproduction. Do not include raw session archives, private task text, account tokens, credentials, personal data or unrelated project contents. For suspected sensitive-data exposure, stop sharing the data and use a verified private publisher route once available; do not place the details in a public issue.
+Use a minimal synthetic reproduction. Do not include raw session archives, private task text, account tokens, credentials, personal data or unrelated project contents. For suspected sensitive-data exposure, stop sharing the data. Public issues are not a confidential channel; do not include sensitive details.
 
 ## Known limits
 
